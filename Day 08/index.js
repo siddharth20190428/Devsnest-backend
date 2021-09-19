@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const bodyParser = require("body-parser");
 
 const checkAdmin = (req, res, next) => {
   if (req.query.auth === "asrsadeacsad") {
