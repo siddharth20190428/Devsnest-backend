@@ -1,4 +1,4 @@
-const user = require("../models/user");
+const user = require("../models/mongo");
 const bcrypt = require("bcrypt");
 
 /*
@@ -12,7 +12,7 @@ const saltRounds = 10;
 const register = async (req, res) => {
   const { email, password } = req.body;
   try {
-    const alreadyExists = await user.findOne({ where: { email } });
+    const alreadyExists = await user.findOne({ where: { email } }).exec();
     if (alreadyExists) {
       res.status(401).send("Email already exists");
     }
